@@ -193,3 +193,75 @@ Received Import Request.
   path: Assets/Materials/BlueNormal.mat
   artifactKey: Guid(f86e507db2a80ad41b49780382ded008) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Materials/BlueNormal.mat using Guid(f86e507db2a80ad41b49780382ded008) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b72980dcee8bf5f9bd2e135a9da4d5f') in 0.040312 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 58.389711 seconds.
+  path: Assets/Materials/PlayerMaterial.mat
+  artifactKey: Guid(a7e05da5fe932b04a963c574402a8517) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/PlayerMaterial.mat using Guid(a7e05da5fe932b04a963c574402a8517) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d1b09ae141688e5ca56134049794bea') in 0.028648 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 577.781549 seconds.
+  path: Assets/Materials/PlayerMaterial.mat
+  artifactKey: Guid(a7e05da5fe932b04a963c574402a8517) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/PlayerMaterial.mat using Guid(a7e05da5fe932b04a963c574402a8517) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'addafc0ba975b3da01fe28f7f6d501e6') in 0.026460 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 365.673313 seconds.
+  path: Assets/Shader
+  artifactKey: Guid(70a6b05035a393a418e916ed260bcbba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader using Guid(70a6b05035a393a418e916ed260bcbba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58930c8258ec910d2c50cffd5ff30845') in 0.011745 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.396816 seconds.
+  path: Assets/Shader/StripShader.shader
+  artifactKey: Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/StripShader.shader using Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eea052b53aafcad1f611e61a61718534') in 0.013278 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 43.550934 seconds.
+  path: Assets/Shader/StripShader.shader
+  artifactKey: Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/StripShader.shader using Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b09250495740f916d86079185a98d70d') in 0.004930 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.913194 seconds.
+  path: Assets/Shader/StripShader.shader
+  artifactKey: Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/StripShader.shader using Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '826ad54d5efe4cafa1dbf488442d6440') in 0.006009 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 52.134995 seconds.
+  path: Assets/Shader/StripShader.shader
+  artifactKey: Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/StripShader.shader using Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '466e9d1591c093c5854bc59dcbdea7d5') in 0.004579 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 40.256695 seconds.
+  path: Assets/Shader/StripShader.shader
+  artifactKey: Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/StripShader.shader using Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41666c5626cda4abe40bcf43992dddd9') in 0.004658 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.252379 seconds.
+  path: Assets/Materials/PlayerMaterialStrip.mat
+  artifactKey: Guid(24339a7cbe159de4f909e0bda696504c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/PlayerMaterialStrip.mat using Guid(24339a7cbe159de4f909e0bda696504c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a27ac9845307020fd110220c66b7e9d0') in 0.030748 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4549.550899 seconds.
+  path: Assets/Shader/NewSurfaceShader.shader
+  artifactKey: Guid(7704fa5edd5293d44939f334b912ad8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/NewSurfaceShader.shader using Guid(7704fa5edd5293d44939f334b912ad8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbd03b3a452d6cbf2fbb0f1a283f7176') in 0.023955 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 419.997179 seconds.
+  path: Assets/Shader/StripShader.shader
+  artifactKey: Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shader/StripShader.shader using Guid(e1689d60d9573424ab7c3256f1855c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c483894df197e0196f21e89157653695') in 0.005859 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 35.566549 seconds.
+  path: Assets/Materials/PlayerMaterialStrip.mat
+  artifactKey: Guid(24339a7cbe159de4f909e0bda696504c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/PlayerMaterialStrip.mat using Guid(24339a7cbe159de4f909e0bda696504c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1d412525f572293c18ada8ad300135a') in 0.038224 seconds 

@@ -31,6 +31,16 @@ public class PlayerOptions : MonoBehaviour
         get => _damageColor;
     }
 
+    public float HealDuration
+    {
+        get => _healDurationSeconds;
+    }
+
+    public Color HealColor
+    {
+        get => _healColor;
+    }
+
     public void UpdateStripTiling( int newTiling)
     {
         _playerStripMaterial.SetInt("_Tiling", newTiling);

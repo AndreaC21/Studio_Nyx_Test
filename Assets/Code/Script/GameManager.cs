@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
         {
             _gameUI.UpdatePlayerHealthBar(_playerInstance.DamageDuration, _playerInstance.HealthAmount);
         }
+        else
+        {
+            _gameUI.UpdatePlayerHealthBar(_playerInstance.HealDuration, _playerInstance.HealthAmount);
+        }
     }
 
     private void PlayerDie()

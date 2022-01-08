@@ -20,6 +20,11 @@ public class PlayerInstanceUnity : MonoBehaviour
         get => _playerOptions.DamageDuration;
     }
 
+    public float HealDuration
+    {
+        get => _playerOptions.HealDuration;
+    }
+
     private int StripTilling
     {
         get => _health / 10;
@@ -52,7 +57,11 @@ public class PlayerInstanceUnity : MonoBehaviour
         if (amount < 0)
         {
             StartCoroutine(UpdatePlayerColorAnimation(_playerOptions.DamageDuration, _playerOptions.DamageColor));
-        } 
+        }
+        else
+        {
+            StartCoroutine(UpdatePlayerColorAnimation(_playerOptions.HealDuration, _playerOptions.HealColor));
+        }
     }
 
     private void PlayerDie()

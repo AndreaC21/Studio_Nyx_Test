@@ -3,8 +3,7 @@ Shader "Unlit/StripShader"
     Properties
     {
         _MainTex ("Albedo Texture",2D) = "white" {}
-        _Color1("Color", Color) = (0,0,0,1)
-        _Color2("Color", Color) = (1,1,1,1)
+        _Color("Color", Color) = (1,1,1,1)
         _Tiling("Tiling", Range(1, 500)) = 10
     }
     SubShader
@@ -37,8 +36,8 @@ Shader "Unlit/StripShader"
             };
 
             int _Tiling;
-            fixed4 _Color1;
-            fixed4 _Color2;
+            fixed4 _transparentColor = (0, 0, 0, 1);
+            fixed4 _Color;
 
             v2f vert (appdata v)
             {
@@ -52,7 +51,7 @@ Shader "Unlit/StripShader"
             {
                 float pos = i.uv.y * _Tiling;
                 float value = floor(frac(pos) + 0.5);
-                return lerp(_Color1,_Color2,value);
+                return lerp(_transparentColor,_Color,value);
             }
 
             ENDCG

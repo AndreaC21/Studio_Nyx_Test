@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _gameUI.UpdatePlayerHealthBar(_playerInstance.HealthAmount);
+        UpdatePlayerHealth(0);
     }
 
     private void OnDestroy()
@@ -42,7 +42,11 @@ public class GameManager : MonoBehaviour
     private void UpdatePlayerHealth(int amount)
     {
         _playerInstance.UpdateHealth(amount);
-        _gameUI.UpdatePlayerHealthBar(_playerInstance.HealthAmount);
+
+        if (amount < 0)
+        {
+            _gameUI.UpdatePlayerHealthBar(_playerInstance.DamageDuration, _playerInstance.HealthAmount);
+        }
     }
 
     private void PlayerDie()

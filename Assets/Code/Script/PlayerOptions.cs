@@ -9,6 +9,27 @@ public class PlayerOptions : MonoBehaviour
     [SerializeField] private Material _playerStripMaterial = default;
     [Header("Options")]
     [SerializeField] private Color _stripColor = Color.grey;
+    [Header("Damage")]
+    [SerializeField] private Color _damageColor = Color.red;
+    [SerializeField] private float _damageDurationSeconds = 2.0f;
+    [Header("Heal")]
+    [SerializeField] private Color _healColor = Color.green;
+    [SerializeField] private float _healDurationSeconds = 2.0f;
+
+    public Color PlayerColor
+    {
+        get => _stripColor;
+    }
+
+    public float DamageDuration
+    {
+        get => _damageDurationSeconds;
+    }
+
+    public Color DamageColor
+    {
+        get => _damageColor;
+    }
 
     public void UpdateStripTiling( int newTiling)
     {
@@ -18,6 +39,11 @@ public class PlayerOptions : MonoBehaviour
     private void UpdateStripColor()
     {
         _playerStripMaterial.SetColor("_Color", _stripColor);
+    }
+
+    public void UpdateStripColor(Color newColor)
+    {
+        _playerStripMaterial.SetColor("_Color", newColor);
     }
 
     // Update is called once per frame

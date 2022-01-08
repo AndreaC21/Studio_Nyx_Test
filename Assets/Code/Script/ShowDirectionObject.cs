@@ -20,8 +20,7 @@ public class ShowDirectionObject : MonoBehaviour
     {
         switch(direction)
         {
-            case Direction.Forward : return Vector3.forward;
-            case Direction.Backward: return Vector3.back;
+            case Direction.Forward : return _object.forward;
             default:  return Vector3.zero;
         }
     }

@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private InputManager _inputManager;
     [SerializeField] private Rigidbody _rigibody;
 
-    private PlayerControl _playerControls;
     private float _moveSpeed = 4;
     private float _rotationSpeed = 180;
     private bool _isMoving;
@@ -16,55 +16,42 @@ public class PlayerController : MonoBehaviour
     private float _moveDirection2;
     private Vector3 _directionRotation;
 
-    private void Awake()
-    {
-        _playerControls = new PlayerControl();
-    }
-
-    private void OnEnable()
-    {
-        _playerControls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _playerControls.Disable();
-    }
-
     private void Start()
     {
-        _playerControls.Land.Move.started += StartMove;
-        _playerControls.Land.Move.canceled += StopMove;
+        _inputManager.OnStartMove += StartMove;
+        _inputManager.OnStopMove += StopMove;
 
-        _playerControls.Land.Rotate.started += StartRotate;
-        _playerControls.Land.Rotate.canceled += StopRotate;
+        _inputManager.OnStartRotate += StartRotate;
+        _inputManager.OnStopRotate += StopRotate;
     }
 
     private void OnDestroy()
     {
-        _playerControls.Land.Move.started -= StartMove;
+        _inputManager.OnStartMove -= StartMove;
+        _inputManager.OnStopMove -= StopMove;
+
+        _inputManager.OnStartRotate -= StartRotate;
+        _inputManager.OnStopRotate -= StopRotate;
     }
 
-    private void StartMove(InputAction.CallbackContext context)
+    private void StartMove(float direction)
     {
-        float v = context.ReadValue<float>();
-        _moveDirection2 = v;
+        _moveDirection2 = direction;
         _isMoving = true; 
     }
 
-    private void StopMove(InputAction.CallbackContext context)
+    private void StopMove()
     {
         _isMoving = false;
     }
 
-    private void StartRotate(InputAction.CallbackContext context)
+    private void StartRotate(float direction)
     {
-        float f = context.ReadValue<float>();
-        _directionRotation = new Vector3(0, f * _rotationSpeed, 0);
+        _directionRotation = new Vector3(0, direction * _rotationSpeed, 0);
         _isRotating = true;
     }
 
-    private void StopRotate(InputAction.CallbackContext context)
+    private void StopRotate()
     {
         _isRotating = false;
     }

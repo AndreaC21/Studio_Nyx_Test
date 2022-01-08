@@ -44,6 +44,24 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ReduceHealth"",
+                    ""type"": ""Button"",
+                    ""id"": ""8673487c-964f-4102-b03b-8a68d285ce18"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""IncreaseHealth"",
+                    ""type"": ""Button"",
+                    ""id"": ""f47733ab-b0c8-4189-a7d8-68d1320edfdd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -64,7 +82,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -75,7 +93,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -97,7 +115,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -108,10 +126,32 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c0ca10a-1962-4dee-9024-f5006f00a4b1"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""ReduceHealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e675a30a-6cbc-4799-b2d1-3e4e2e3f7d53"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""IncreaseHealth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -128,6 +168,8 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         m_Land = asset.FindActionMap("Land", throwIfNotFound: true);
         m_Land_Move = m_Land.FindAction("Move", throwIfNotFound: true);
         m_Land_Rotate = m_Land.FindAction("Rotate", throwIfNotFound: true);
+        m_Land_ReduceHealth = m_Land.FindAction("ReduceHealth", throwIfNotFound: true);
+        m_Land_IncreaseHealth = m_Land.FindAction("IncreaseHealth", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -189,12 +231,16 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
     private ILandActions m_LandActionsCallbackInterface;
     private readonly InputAction m_Land_Move;
     private readonly InputAction m_Land_Rotate;
+    private readonly InputAction m_Land_ReduceHealth;
+    private readonly InputAction m_Land_IncreaseHealth;
     public struct LandActions
     {
         private @PlayerControl m_Wrapper;
         public LandActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Land_Move;
         public InputAction @Rotate => m_Wrapper.m_Land_Rotate;
+        public InputAction @ReduceHealth => m_Wrapper.m_Land_ReduceHealth;
+        public InputAction @IncreaseHealth => m_Wrapper.m_Land_IncreaseHealth;
         public InputActionMap Get() { return m_Wrapper.m_Land; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -210,6 +256,12 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @Rotate.started -= m_Wrapper.m_LandActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_LandActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_LandActionsCallbackInterface.OnRotate;
+                @ReduceHealth.started -= m_Wrapper.m_LandActionsCallbackInterface.OnReduceHealth;
+                @ReduceHealth.performed -= m_Wrapper.m_LandActionsCallbackInterface.OnReduceHealth;
+                @ReduceHealth.canceled -= m_Wrapper.m_LandActionsCallbackInterface.OnReduceHealth;
+                @IncreaseHealth.started -= m_Wrapper.m_LandActionsCallbackInterface.OnIncreaseHealth;
+                @IncreaseHealth.performed -= m_Wrapper.m_LandActionsCallbackInterface.OnIncreaseHealth;
+                @IncreaseHealth.canceled -= m_Wrapper.m_LandActionsCallbackInterface.OnIncreaseHealth;
             }
             m_Wrapper.m_LandActionsCallbackInterface = instance;
             if (instance != null)
@@ -220,6 +272,12 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
+                @ReduceHealth.started += instance.OnReduceHealth;
+                @ReduceHealth.performed += instance.OnReduceHealth;
+                @ReduceHealth.canceled += instance.OnReduceHealth;
+                @IncreaseHealth.started += instance.OnIncreaseHealth;
+                @IncreaseHealth.performed += instance.OnIncreaseHealth;
+                @IncreaseHealth.canceled += instance.OnIncreaseHealth;
             }
         }
     }
@@ -237,5 +295,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnReduceHealth(InputAction.CallbackContext context);
+        void OnIncreaseHealth(InputAction.CallbackContext context);
     }
 }

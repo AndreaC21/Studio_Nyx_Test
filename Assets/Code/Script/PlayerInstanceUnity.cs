@@ -42,6 +42,10 @@ public class PlayerInstanceUnity : MonoBehaviour
 
     private void PlayerDie()
     {
-
+        OnPlayerDie();
+        Destroy(gameObject);
     }
+
+    public delegate void PlayerDieEvent();
+    public event PlayerDieEvent OnPlayerDie;
 }

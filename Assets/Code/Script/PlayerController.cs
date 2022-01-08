@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody _rigibody;
 
     private PlayerControl _playerControls;
-    private float _moveSpeed = 2;
-    private float _rotationSpeed = 50;
+    private float _moveSpeed = 4;
+    private float _rotationSpeed = 180;
     private bool _isMoving;
     private bool _isRotating;
 

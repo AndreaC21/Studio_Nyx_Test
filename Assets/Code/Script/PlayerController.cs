@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     private float _rotateDirection;
 
-    Transform cheat;
     private void Start()
     {
         _inputManager.OnStartMove += StartMove;
@@ -26,7 +25,6 @@ public class PlayerController : MonoBehaviour
 
         _inputManager.OnStartRotate += StartRotate;
         _inputManager.OnStopRotate += StopRotate;
-        cheat = new GameObject().transform;
     }
 
     private void OnDestroy()

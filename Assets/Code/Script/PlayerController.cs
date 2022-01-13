@@ -10,13 +10,9 @@ public class PlayerController : MonoBehaviour
 
     private float _moveSpeed = 10;
     private float _rotationSpeed = 2;
-    private bool _isMoving;
-    private bool _isRotating;
-
     private float _moveDirection2;
     private Vector3 _directionRotation;
 
-    private float _rotateDirection;
 
     private void Start()
     {
@@ -39,28 +35,23 @@ public class PlayerController : MonoBehaviour
     private void StartMove(float direction)
     {
         _moveDirection2 = direction;
-        _isMoving = true; 
     }
 
     private void StopMove()
     {
         _moveDirection2 = 0.0f;
-        _isMoving = false;
     }
 
     private void StartRotate(float direction)
     {
-        _directionRotation = new Vector3(0, direction * _rotationSpeed, 0);
-        _rotateDirection = direction;
-        _isRotating = true;
+        _directionRotation = Vector3.up * direction * _rotationSpeed ;// new Vector3(0, direction * _rotationSpeed, 0);
     }
 
     private void StopRotate()
     {
         _directionRotation = Vector3.zero;
-        _rotateDirection = 0.0f;
-        _isRotating = false;
     }
+
 
     private void FixedUpdate()
     {
@@ -70,13 +61,13 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
-        if (_isRotating)
+        if (_directionRotation != Vector3.zero)
         {
             Quaternion deltaRotation = Quaternion.Euler(_directionRotation * Time.fixedDeltaTime);
             _rigibody.MoveRotation(_rigibody.rotation * deltaRotation);
         }
 
-        if (_isMoving)
+        if (_moveDirection2 !=0)
         {
             Vector3 directionMovement = transform.forward * _moveDirection2 * _moveSpeed;
             _rigibody.MovePosition(transform.position + directionMovement * Time.fixedDeltaTime);
@@ -85,26 +76,14 @@ public class PlayerController : MonoBehaviour
 
     private void MovementWithForce()
     {
-        
-        if (_isMoving && _isRotating)
-        {
-            return;
-        }
+        Vector3 direction = GetWorldForwardDirection();
 
-        Vector3 directionRotation = Vector3.up * _rotateDirection ;
-        if (_isRotating)
-        {
-            _rigibody.AddTorque(directionRotation * _rotationSpeed);
-        }
+        direction += _directionRotation;
+        _rigibody.AddTorque(_directionRotation);
+        _rigibody.AddForce(direction * _moveDirection2 * _moveSpeed);
 
-        Vector3 direction = GetWorldForwardDirection() * _moveDirection2;
-        if (_isMoving)
-        {
-            _rigibody.AddForce(direction * _moveSpeed);
-        }
-        _directionIndicator.position = transform.position + GetWorldForwardDirection() * 2;
         _directionIndicator.localEulerAngles = Vector3.up * transform.localEulerAngles.y;
-
+        _directionIndicator.position = transform.position + GetWorldForwardDirection() * 2;
     }
 
     private Vector3 GetWorldForwardDirection()
@@ -112,7 +91,6 @@ public class PlayerController : MonoBehaviour
         Vector3 forward = Vector3.Cross(transform.right, Vector3.up);
         return forward.normalized ;
     }
-
 
     private void OnDrawGizmos()
     {
@@ -122,5 +100,6 @@ public class PlayerController : MonoBehaviour
 
          Gizmos.DrawRay(transform.position,selectDirection * radius);
          Gizmos.DrawSphere(transform.position + selectDirection * radius, 0.5f);
+       
     }
 }
